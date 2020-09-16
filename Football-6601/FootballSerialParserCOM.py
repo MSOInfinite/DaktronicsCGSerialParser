@@ -90,10 +90,16 @@ def POS(POSInt):
 	return(POSText)
 
 
+
+#Set your COM Port name here:
+COMPort = 'COM7'
+
+
+
 #Import PySerial
 import serial
-#Open COM5 port and reset input buffer
-ser = serial.Serial('COM7', 9600)
+#Open defined COM port and reset input buffer
+ser = serial.Serial(COMPort, 9600)
 ser.reset_input_buffer()
 
 while True:
