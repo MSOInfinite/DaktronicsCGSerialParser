@@ -11,7 +11,7 @@ __credits__ = "Collin Moore"
 __license__ = "GPL"
 __version__ = "1.4.1"
 __maintainer__ = "Collin Moore"
-__email__ = "25944818+MSOInfinite@users.noreply.github.com"
+__email__ = "moorec@btcs.org"
 __status__ = "Release"
 
 """Notes for reading serial bits: pulling individual characters
