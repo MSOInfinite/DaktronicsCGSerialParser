@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """FootballSerialParserCOM5.py: Collects data from a Daktronics All Sport 5000 connected via port J2 to a 
-Daktronics All Sport CG connected to a computer on port COM5, then parses data to a .csv readable by broadcasting programs.
+Daktronics All Sport CG connected to a computer COM port, then parses data to a .csv readable by broadcasting programs.
 This file has only been tested using game code 6601 on a Daktronics All Sport 5000 (Football - Standard).
 """
 
@@ -9,10 +9,10 @@ __author__ = "Collin Moore"
 __copyright__ = "Copyright 2020, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
 __license__ = "GPL"
-__version__ = "1.4.0"
+__version__ = "1.4.1"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"
-__status__ = "Testing"
+__status__ = "Release"
 
 """Notes for reading serial bits: pulling individual characters
 from 'res' will return integer values assigned to the unicode
@@ -93,7 +93,7 @@ def POS(POSInt):
 #Import PySerial
 import serial
 #Open COM5 port and reset input buffer
-ser = serial.Serial('COM6', 9600)
+ser = serial.Serial('COM7', 9600)
 ser.reset_input_buffer()
 
 while True:
