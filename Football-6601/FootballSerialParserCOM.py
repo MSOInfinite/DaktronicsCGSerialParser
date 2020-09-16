@@ -8,7 +8,7 @@ This file has only been tested using game code 6601 on a Daktronics All Sport 50
 __author__ = "Collin Moore"
 __copyright__ = "Copyright 2020, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
-__license__ = "GPL"
+__license__ = "MIT"
 __version__ = "1.4.1"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"

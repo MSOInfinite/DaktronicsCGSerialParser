@@ -9,7 +9,7 @@ Daktronics All Sport 5000 (Soccer - Standard).
 __author__ = "Collin Moore"
 __copyright__ = "Copyright 2020, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
-__license__ = "GPL"
+__license__ = "MIT"
 __version__ = "1.2.0"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"
