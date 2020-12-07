@@ -93,3 +93,4 @@ while True:
 	#Prints data sets for debugging. Can comment out when running script.
 	print(res)
 	print(scoreboardData)
+    

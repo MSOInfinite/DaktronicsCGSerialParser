@@ -78,3 +78,4 @@ while True:
 	#Prints data sets for debugging. Comment out to run the script silently.
 	print(res)
 	print(scoreboardData)
+    
