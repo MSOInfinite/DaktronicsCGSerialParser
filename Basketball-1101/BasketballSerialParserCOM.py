@@ -41,6 +41,18 @@ def intSuffixer(passedInt):
 
 	return(intSuffix)
 
+def foulBonuser(foulsTens, foulsOnes):
+	"""Returns string with 'B' if fouls is 7 or greater, and 'BB' if fouls is 10 or greater"""
+	foulsStr = chr(foulsTens) + chr(foulsOnes)
+	foulsInt = int(foulsStr)
+	bonus = ""
+
+	if foulsInt >= 7:
+		bonus = "B"
+
+	return(bonus)
+
+
 
 #Set your COM Port name here:
 COMPort = 'COM5'
@@ -61,16 +73,17 @@ while True:
 	timeText = chr(res[1]) + chr(res[2]) + chr(res[3]) + chr(res[4]) + chr(res[5]) + chr(res[6]) + chr(res[7])
 	homeScore = chr(res[14]) + chr(res[15])
 	guestScore = chr(res[17]) + chr(res[18])
-	homeFouls = chr(res[19]) + chr(res[20])
-	awayFouls = chr(res[21]) + chr(res[22])
 	timeoutTime = chr(res[30]) + chr(res[31]) + chr(res[32]) + chr(res[33]) + chr(res[34])
 
 	#Call functions and assign values
 	quarterText = intSuffixer(res[29])
+	homeBonus = foulBonuser(res[21], res[22])
+	awayBonus = foulBonuser(res[19], res[20])
+
 
 	#Saves formatted data to variable in CSV format.
 	#"EOF" exists to mark end of file - potential empty columns at end were causing readability issues in vMix
-	scoreboardData = (timeText + "," + homeScore + "," + guestScore + "," + homeFouls + "," + awayFouls + "," + quarterText + "," + timeoutTime + "," + "EOF")
+	scoreboardData = (timeText + "," + homeScore + "," + guestScore + "," + homeBonus + "," + awayBonus + "," + quarterText + "," + timeoutTime + "," + "EOF")
 	#create/overwrite CSV data file
 	scoreboardDataFile = open("BasketballDataFile.csv", "w")
 	#saves and closes CSV file
