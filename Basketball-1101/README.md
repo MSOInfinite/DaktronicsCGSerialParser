@@ -1,4 +1,5 @@
-# Football - Game Code 6601
-.csv columns are as follows: Game Clock , Home Score , Away Score , Quarter , Ball On , Down & To Go , Home Possession, Away Possession, EOF
+# Basketball - Player-Foul | Game Code 1101
+.csv columns are as follows: Game Clock , Home Score , Away Score , Home Bonus , Away Bonus , Timeout Clock , EOF
 
-The possession slots will display an 'F' in whichever column currently has possession. We use the font 'Mattbats', which has a football symbol for 'F'.
+The bonus slots will display a 'B' in whichever column currently has Bonus, hard coded as opposing fouls >=7.
+The timeout clock field is blank unless a timeout is currently running on the scoreboard controller

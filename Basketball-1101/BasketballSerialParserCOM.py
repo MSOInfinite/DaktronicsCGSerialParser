@@ -9,7 +9,7 @@ __author__ = "Collin Moore"
 __copyright__ = "Copyright 2020, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
 __license__ = "MIT"
-__version__ = "1.4.1"
+__version__ = "1.5"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"
 __status__ = "Release"
@@ -42,7 +42,7 @@ def intSuffixer(passedInt):
 	return(intSuffix)
 
 def foulBonuser(foulsTens, foulsOnes):
-	"""Returns string with 'B' if fouls is 7 or greater, and 'BB' if fouls is 10 or greater"""
+	"""Returns string with 'B' if fouls is 7 or greater"""
 	foulsStr = chr(foulsTens) + chr(foulsOnes)
 	foulsInt = int(foulsStr)
 	bonus = ""
@@ -51,7 +51,6 @@ def foulBonuser(foulsTens, foulsOnes):
 		bonus = "B"
 
 	return(bonus)
-
 
 
 #Set your COM Port name here:
@@ -69,7 +68,7 @@ while True:
 	#read 45 bits from serial input
 	res = ser.read(38)
 
-	#encode characters to unicode for variables without functions (also 'time' because it's so long)
+	#encode characters to unicode for variables without functions
 	timeText = chr(res[1]) + chr(res[2]) + chr(res[3]) + chr(res[4]) + chr(res[5]) + chr(res[6]) + chr(res[7])
 	homeScore = chr(res[14]) + chr(res[15])
 	guestScore = chr(res[17]) + chr(res[18])
@@ -84,13 +83,13 @@ while True:
 	#Saves formatted data to variable in CSV format.
 	#"EOF" exists to mark end of file - potential empty columns at end were causing readability issues in vMix
 	scoreboardData = (timeText + "," + homeScore + "," + guestScore + "," + homeBonus + "," + awayBonus + "," + quarterText + "," + timeoutTime + "," + "EOF")
-	#create/overwrite CSV data file
+	#Open/Create CSV data file for writing
 	scoreboardDataFile = open("BasketballDataFile.csv", "w")
 	#saves and closes CSV file
 	scoreboardDataFile.write(scoreboardData)
 	scoreboardDataFile.close()
 
 
-	#Prints data sets for debugging. Comment out when running script.
+	#Prints data sets for debugging. Can comment out when running script.
 	print(res)
 	print(scoreboardData)
