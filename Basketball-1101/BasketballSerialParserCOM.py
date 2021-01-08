@@ -9,7 +9,7 @@ __author__ = "Collin Moore"
 __copyright__ = "Copyright 2020, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
 __license__ = "MIT"
-__version__ = "1.5"
+__version__ = "1.5.1"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"
 __status__ = "Release"
@@ -28,7 +28,7 @@ character. Characters used for logic checks in this script are:
 
 #Function definitions
 def intSuffixer(passedInt):
-	"""Returns string with passed int value and corresponding suffix. Anything outside characters 1-4 returns the int chr."""
+	"""Returns string with passed int value and corresponding suffix. Integers > 4 return 'OT' for overtime period."""
 	intSuffix = chr(passedInt)
 	if passedInt == 49:
 		intSuffix += "st"
@@ -38,6 +38,8 @@ def intSuffixer(passedInt):
 		intSuffix += "rd"
 	elif passedInt == 52:
 		intSuffix += "th"
+	elif passedInt > 52:
+		intSuffix = "OT"
 
 	return(intSuffix)
 
