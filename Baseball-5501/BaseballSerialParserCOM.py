@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 
 """SoccerSerialParserCOM.py: Collects data from a Daktronics All Sport 5000 connected via port J2 to a 
-Daktronics All Sport CG connected to a computer on COM port (defined on line 58), then parses data to 
-a .csv readable by broadcasting programs. This file has only been tested using game code 7701 on a 
-Daktronics All Sport 5000 (Soccer - Standard).
+Daktronics All Sport CG connected to a computer on COM port (defined on line 56), then parses data to 
+a .csv readable by broadcasting programs. This file has only been tested using game code 5501 on a 
+Daktronics All Sport 5000 (Baseball - Standard).
 """
 
 __author__ = "Collin Moore"
 __copyright__ = "Copyright 2021, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
 __license__ = "MIT"
-__version__ = "1.1.0"
+__version__ = "1.1.2"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"
 __status__ = "Release"
@@ -108,7 +108,7 @@ while True:
 			inningFlipped = True
 
     
-	#Reset inningFlipped once scoreboard is reset
+	#Reset inningFlipped once "out" is reset to "0"
 	if out == "0" and inningFlipped:
 		inningFlipped = False
 	

@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 
 """FootballSerialParserCOM5.py: Collects data from a Daktronics All Sport 5000 connected via port J2 to a 
-Daktronics All Sport CG connected to a computer COM port, then parses data to a .csv readable by broadcasting programs.
-This file has only been tested using game code 6601 on a Daktronics All Sport 5000 (Football - Standard).
+Daktronics All Sport CG connected to a computer on COM port (defined on line 96), then parses data to 
+a .csv readable by broadcasting programs. This file has only been tested using game code 6601 on a 
+Daktronics All Sport 5000 (Football - Standard).
 """
 
 __author__ = "Collin Moore"
 __copyright__ = "Copyright 2020, Bristol Tennessee City Schools"
 __credits__ = "Collin Moore"
 __license__ = "MIT"
-__version__ = "1.4.1"
+__version__ = "1.4.2"
 __maintainer__ = "Collin Moore"
 __email__ = "moorec@btcs.org"
 __status__ = "Release"
