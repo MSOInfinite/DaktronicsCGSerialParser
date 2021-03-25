@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""SoccerSerialParserCOM.py: Collects data from a Daktronics All Sport 5000 connected via port J2 to a 
+"""BaseballSerialParserCOM.py: Collects data from a Daktronics All Sport 5000 connected via port J2 to a 
 Daktronics All Sport CG connected to a computer on COM port (defined on line 56), then parses data to 
 a .csv readable by broadcasting programs. This file has only been tested using game code 5501 on a 
 Daktronics All Sport 5000 (Baseball - Standard).
@@ -29,9 +29,11 @@ character. Characters used for logic checks in this script are:
 
 #Function definitions
 def intSuffixer(passedTens, passedOnes):
-	"""Returns string with passed int value and corresponding suffix. Anything outside characters 1-4 returns the int value."""
-	intSuffix = chr(passedTens) + chr(passedOnes)
-	if passedOnes == 49:
+	"""Returns string with passed int value and corresponding suffix."""
+	intSuffix = chr(passedOnes)
+	if passedTens != 32:
+		intSuffix = (chr(passedTens) + chr(passedOnes) + "th")
+	elif passedOnes == 49:
 		intSuffix += "st"
 	elif passedOnes == 50:
 		intSuffix += "nd"
@@ -45,15 +47,15 @@ def intSuffixer(passedTens, passedOnes):
 def topBotFlipper(topBot):
     """When called, flips topBot from 'Top' to 'Bot' or vice-versa. This is a pretty rough method at the time. If your scoreboard
     operator errantly sets outs to 3, this will flip and cause your innings to be off."""
-    if topBot == "Top":
-        topBot = "Bot"
-    elif topBot == "Bot":
-        topBot = "Top"
+    if topBot == "TOP ":
+        topBot = "BOT "
+    elif topBot == "BOT ":
+        topBot = "TOP "
     
     return(topBot)
 
 #Set your COM Port name here:
-COMPort = 'COM4'
+COMPort = 'COM3'
 
 
 #Import PySerial
@@ -62,7 +64,7 @@ import serial
 ser = serial.Serial(COMPort, 9600)
 ser.reset_input_buffer()
 #Set topBot to Top by default from program start, and logic to know if flipping process has completed
-topBot = "Top"
+topBot = "TOP "
 inningFlipped = False
 
 while True:
@@ -113,7 +115,7 @@ while True:
 		inningFlipped = False
 	
 	#Call functions and assign values
-	quarterText = topBot + intSuffixer(res[14], res[15])
+	quarterText = topBot + intSuffixer(res[9], res[10])
 
 	#Saves formatted data to variable in CSV format.
 	#"EOF" exists to mark end of file - potential empty columns at end were causing readability issues in vMix
