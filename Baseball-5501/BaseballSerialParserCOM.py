@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """BaseballSerialParserCOM.py: Collects data from a Daktronics All Sport 5000 connected via port J2 to a 
-Daktronics All Sport CG connected to a computer on COM port (defined on line 56), then parses data to 
+Daktronics All Sport CG connected to a computer on COM port (defined on line 58), then parses data to 
 a .csv readable by broadcasting programs. This file has only been tested using game code 5501 on a 
 Daktronics All Sport 5000 (Baseball - Standard).
 """

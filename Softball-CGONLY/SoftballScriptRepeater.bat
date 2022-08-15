@@ -2,6 +2,6 @@
 REM Python Script Repeater
 ECHO This script will not end on it's own. Ctrl + C to force-quit
 :runScript
-python SoftballSerialParserCOM.py
+python SoftballSerialParserCOM-CGONLY.py
 ECHO Script crashed... Restarting...
 GOTO runScript
